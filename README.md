@@ -20,7 +20,7 @@ Here are some difficulties I've faced while developing the application, and woul
 
 **Q: What are the billing costs?**
 
-**A:** All AWS services are in the free tier that does not exceed the limits. As for Claude, running a *Haiku 4.5* model that *summarises 6 articles with 120 words each* costs about **0.30 USD**.
+**A:** While AWS Lambda and EventBridge does not exceed the free tier limits, Secrets Manager costs at **0.40 USD** per month for storing, **0.05 USD** per 10,000 API calls. As for Claude, running a *Haiku 4.5* model that *summarises 6 articles with 120 words each* costs about **0.30 USD**.
 
 **Q: Why is a Discord Channel ID required if I want to send a DM to myself?**
 
@@ -36,4 +36,4 @@ curl -X POST https://discord.com/api/v10/channels/<channelid>/messages -H "Autho
 
 **Q: Why do you need to remove the markdown code block and HTML tags after obtaining the response from the AI model?**
 
-**A:** From what I've experienced, the response includes code blocks ` ```json ` and HTML tags `<cite index="39-7">` that makes the JSON invalid and adds irrelevant texts respectively. Even if you modify the prompt, it will still include them. **Therefore, code sanitization would be better as compared to prompt sanitization**.
+**A:** From what I've experienced, the response includes code blocks ` ```json ` and HTML tags `<cite index="39-7">` that makes the JSON invalid and adds irrelevant texts respectively. Even if you modify the prompt, it will still include them. **Therefore, code-level sanitization would be better as compared to prompt-level sanitization**.
